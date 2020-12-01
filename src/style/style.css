@@ -3,18 +3,52 @@
 .brown{
     background-color: #675504
   }
+
+.lightbrown{
+    background-color: #cfbd6e
+}
   
-  .purple{
-      background-color: purple
-  }
+.black{
+    background-color: #0a0b14
+}
   
-  .red{
-    background-color: red
-  }
+.lightblack{
+    background-color: #6a656f;
+}
+
+.green{
+   background-color: #70a909;
+}
   
-  .blue{
-    background-color: blue
-  }
+.lightgreen{
+  background-color: #a5f657;
+}
+
+.blue{
+  background-color: #0000FF;
+}
+
+.lightblue{
+  background-color: #6495ED;
+}
+
+.orange{
+  background-color: #ff9933;
+}
+  
+.lightorange{
+  background-color: #ffa64d;
+}
+
+.yellow{
+    background-color: #fcff33;
+}
+    
+.lightyellow{
+  background-color: #f6f957;
+}
+  
+  
   
   /* Grid */
   
@@ -49,6 +83,20 @@
       height:17.5vh;
   }
   
+  .size_4{
+    width:14vh;
+    height:14vh;
+}
+
+.size_5{
+    width:11.6vh;
+    height:11.6vh;
+}
+
+.size_6{
+    width:10vh;
+    height:10vh;
+}
   .border-grey{
       border: 1px solid #dbdcde;
   }

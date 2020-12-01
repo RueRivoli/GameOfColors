@@ -1,15 +1,16 @@
 <template>
   <el-container>
     <el-header>Welcome to this game. Pick the square that has a different color</el-header>
-      <!-- <div v-for="(ln, ind) in state.tab" :key="ind"> -->
+    X :: {{state.idToFind}}
       <div style="margin: auto;border: 5px solid #dbdcde;border-radius:2px;" >
         <div v-for="id_row in state.row" :key="id_row">
           <el-row :key="id_row">
-              <el-col 
+              <el-col
+                :id="state.row * (id_row - 1) + id_col"
                 v-for="id_col in state.row" 
-                :key="id_row + id_col + 1" 
-                class="brown pointer size_2 border-grey" 
-                @click="isDifferent(id_row + id_col + 1)">
+                :key="id_row + id_col"
+                :class="classOf(state.row * (id_row - 1) + id_col)"
+                @click="isDifferent(state.row * (id_row - 1) + id_col)">
               </el-col>
           </el-row>
         </div>
@@ -20,6 +21,7 @@
 
 <script>
 import { reactive, computed, defineComponent } from 'vue'
+import { colors } from './../colors/colors'
 
 export default defineComponent({
   name: 'LayoutComponent',
@@ -31,15 +33,37 @@ export default defineComponent({
       step: 1,
       row: computed(() => state.step + 1),
       sq: computed(() => (state.step + 1) * (state.step + 1)),
-      tab: [0, 1, 2]
+      idToFind: 3
     })
-    console.log(state)
+
+    const classOf = function (id) {
+      let classes = ['pointer','border-grey']
+      if (id === state.idToFind) classes.push(colors[state.step - 1].exception)
+      else classes.push(colors[state.step - 1].usual)
+      classes.push('size_' + state.step)
+      return classes.join(' ')
+    }
+
+     const increaseSize = function () {
+      if (state.step < 6) {
+        state.step++
+        state.idToFind = Math.floor(Math.random() * state.sq + 1)
+        console.log('step | new Id To Find ', state.step, state.idToFind)
+      }
+
+    }
+
     const isDifferent = function (id = 1) {
       console.log('isDifferent | id ', id)
+      if (id === state.idToFind) {
+        increaseSize()
+      }
     }
+
     return {
       state,
-      isDifferent
+      isDifferent,
+      classOf
     }
   }
 })
