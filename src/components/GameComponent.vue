@@ -8,12 +8,12 @@
       <div class="m-auto b-grey b-grey-large b-rad-2">
         <div v-for="id_row in rows" :key="id_row">
           <el-row :key="id_row">
-              <el-col
-                v-for="id_col in rows" 
-                :key="indexOfSquare(id_row, id_col)"
-                :class="colorOf(indexOfSquare(id_row, id_col))"
-                @click="testSquare(indexOfSquare(id_row, id_col))">
-              </el-col>
+            <el-col
+              v-for="id_col in rows" 
+              :key="indexOfSquare(id_row, id_col)"
+              :class="colorOf(indexOfSquare(id_row, id_col))"
+              @click="testSquare(indexOfSquare(id_row, id_col))">
+            </el-col>
           </el-row>
         </div>
       </div>
