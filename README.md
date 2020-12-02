@@ -1,14 +1,23 @@
 # Game Of Colors
+> Vue.js 3.0.0
+> Composition API
 
-# Quickly install it
-
+## Quickly install it
+```
 git clone https://github.com/RueRivoli/GameOfColors.git
+```
 
+```
 cd GameOfColors
+```
 
+```
 npm install
+```
 
+```
 npm run serve
+```
 
 ## Project setup
 ```
