@@ -1,5 +1,6 @@
 # Game Of Colors
 > Vue.js 3.0.0
+
 > Composition API
 
 ## Quickly install it
