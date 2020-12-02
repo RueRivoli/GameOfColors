@@ -1,19 +1,19 @@
-/* Colors */
+/* Background-colors */
 
 .brown{
-    background-color: #675504
-  }
+  background-color: #675504
+}
 
 .lightbrown{
-    background-color: #cfbd6e
+  background-color: #cfbd6e
 }
   
 .black{
-    background-color: #0a0b14
+  background-color: #0a0b14
 }
   
 .lightblack{
-    background-color: #6a656f;
+  background-color: #6a656f;
 }
 
 .green{
@@ -47,62 +47,119 @@
 .lightyellow{
   background-color: #f6f957;
 }
+
+.purple{
+    background-color: #9966ff
+}
+
+.lightpurple{
+    background-color: #aa80ff
+}
+
+.pink{
+    background-color: #ff33cc
+}
+
+.lightpink{
+    background-color:  #ff80df
+}
+
+.turquoise{
+    background-color: #33ffff
+}
+
+.lightturquoise{
+    background-color: #ccffff
+}
+
+.grey{
+    background-color: #a3a375
+}
+
+.lightgrey{
+    background-color: #c2c2a3
+}
   
+.navy{
+    background-color: #003399
+}
+
+.lightnavy{
+    background-color: #0055ff
+}
+ 
+/* Sizes */
   
+.size_1{
+  width:35vh;
+  height:35vh;
+}
   
-  /* Grid */
+.size_2{
+  width:23.3vh;
+  height:23.3vh;
+}
   
-  .grid-container {
-      display: grid;
-      grid-template-columns: auto auto;
-      padding: 10px;
-  }
+.size_3{
+  width:17.5vh;
+  height:17.5vh;
+}
   
-  .grid-item {
-      /* background-color: rgba(255, 255, 255, 0.8); */
-      border: 1px solid rgba(0, 0, 0, 0.8);
-      padding: 20px;
-      font-size: 30px;
-      text-align: center;
-  }
-  
-  /* Sizes */
-  
-  .size_1{
-      width:35vh;
-      height:35vh;
-  }
-  
-  .size_2{
-      width:23.3vh;
-      height:23.3vh;
-  }
-  
-  .size_3{
-      width:17.5vh;
-      height:17.5vh;
-  }
-  
-  .size_4{
-    width:14vh;
-    height:14vh;
+.size_4{
+  width:14vh;
+  height:14vh;
 }
 
 .size_5{
-    width:11.6vh;
-    height:11.6vh;
+  width:11.6vh;
+  height:11.6vh;
 }
 
 .size_6{
-    width:10vh;
-    height:10vh;
+  width:10vh;
+  height:10vh;
 }
-  .border-grey{
-      border: 1px solid #dbdcde;
-  }
+
+.size_7{
+  width:8.75vh;
+  height:8.75vh;
+}
+
+.size_8{
+  width:7.77vh;
+  height:7.77vh;
+}
+
+.size_9{
+  width:7vh;
+  height:7vh;
+}
+
+.size_10{
+  width:6.36vh;
+  height:6.36vh;
+}
+
+.size_11{
+  width:5.8vh;
+  height:5.8vh;
+}
+
+/* Cursor */
   
-  /* Cursor */
-  
-  .pointer:hover{
-      cursor: pointer
-  }
+.pointer:hover{
+  cursor: pointer
+}
+
+
+/* Margins */
+
+.m-auto{
+    margin:auto
+}
+
+/* Borders */
+
+.border-grey{
+    border: 1px solid #dbdcde;
+}

@@ -9,5 +9,10 @@ export const colors = [
     { usual: 'green',  exception: 'lightgreen'},
     { usual: 'blue',  exception: 'lightblue'},
     { usual: 'orange',  exception: 'lightorange'},
-    { usual: 'yellow',  exception: 'lightyellow'}
+    { usual: 'yellow',  exception: 'lightyellow'},
+    { usual: 'purple',  exception: 'lightpurple'},
+    { usual: 'pink',  exception: 'lightpink'},
+    { usual: 'turquoise',  exception: 'lightturquoise'},
+    { usual: 'grey',  exception: 'lightgrey'},
+    { usual: 'navy',  exception: 'lightnavy'}
 ]

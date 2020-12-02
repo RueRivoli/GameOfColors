@@ -1,14 +1,14 @@
 <template>
-  <LayoutComponent/>
+  <StartComponent/>
 </template>
 
 <script>
-import LayoutComponent from './components/LayoutComponent.vue'
+import StartComponent from './components/StartComponent.vue'
 
 export default {
   name: 'App',
   components: {
-    LayoutComponent
+    StartComponent
   }
 }
 </script>

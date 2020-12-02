@@ -1,8 +1,14 @@
 <template>
   <el-container>
-    <el-header>Welcome to this game. Pick the square that has a different color</el-header>
-    X :: {{state.idToFind}}
-      <div style="margin: auto;border: 5px solid #dbdcde;border-radius:2px;" >
+    <el-header>
+      <span v-if="!state.win">
+          <el-progress :percentage="state.score" style="width:200px;display: inline-block;"></el-progress>
+      </span>
+      
+      <!-- <el-button v-else @click="newGame()" round>Play again</el-button> -->
+      </el-header>
+      
+      <div v-if="!state.win" style="margin: auto;border: 5px solid #dbdcde;border-radius:2px;" >
         <div v-for="id_row in state.row" :key="id_row">
           <el-row :key="id_row">
               <el-col
@@ -15,7 +21,6 @@
           </el-row>
         </div>
       </div>
-    <el-footer>Footer</el-footer>
 </el-container>
 </template>
 
@@ -24,18 +29,26 @@ import { reactive, computed, defineComponent } from 'vue'
 import { colors } from './../colors/colors'
 
 export default defineComponent({
-  name: 'LayoutComponent',
+  name: 'GameComponent',
   props: {
     msg: String
   },
-  setup() {
+  setup(props, {emit}) {
     const state = reactive({
       step: 1,
       row: computed(() => state.step + 1),
       sq: computed(() => (state.step + 1) * (state.step + 1)),
-      idToFind: 3
+      idToFind: 2,
+      win: false,
+      score: 0
     })
-
+    // const newGame = function () {
+    //   console
+    //   state.step = 1,
+    //   state.idToFind = Math.floor(Math.random() * state.sq + 1)
+    //   state.win = false,
+    //   state.score = 0
+    // }
     const classOf = function (id) {
       let classes = ['pointer','border-grey']
       if (id === state.idToFind) classes.push(colors[state.step - 1].exception)
@@ -45,10 +58,13 @@ export default defineComponent({
     }
 
      const increaseSize = function () {
-      if (state.step < 6) {
+      if (state.step < 11) {
         state.step++
         state.idToFind = Math.floor(Math.random() * state.sq + 1)
+        state.score = state.score + 10 
         console.log('step | new Id To Find ', state.step, state.idToFind)
+      } else {
+         emit('game-finished', true)
       }
 
     }
@@ -57,6 +73,9 @@ export default defineComponent({
       console.log('isDifferent | id ', id)
       if (id === state.idToFind) {
         increaseSize()
+      } else {
+        // newGame()
+        emit('game-finished', false)
       }
     }
 
@@ -64,6 +83,7 @@ export default defineComponent({
       state,
       isDifferent,
       classOf
+      // newGame
     }
   }
 })
