@@ -1,50 +1,50 @@
 <template>
   <el-container>
-    <el-header v-if="!state.isPlaying">
-      <span>{{state.msg}}</span>
+    <el-header v-if="!isPlaying">
+      <span>{{msg}}</span>
     </el-header>
-     <div v-bind:class="classCard()"  v-if="!state.isPlaying">
-        <el-button @click="state.isPlaying = true" round>Play again</el-button>
+     <div v-bind:class="getClassCard(success)"  v-if="!isPlaying">
+        <el-button @click="isPlaying = true" round>Play</el-button>
      </div>
-     <game-component v-else @game-finished="displayResult"/>
+     <game-component v-else @game-finished="getResult"/>
 </el-container>
 </template>
 
 <script>
-import { reactive, defineComponent } from 'vue'
+import { defineComponent } from 'vue'
 import GameComponent from './GameComponent'
+import { useInitialisationGame } from './../utils/functions'
 
 export default defineComponent({
   name: 'StartComponent',
   components: { GameComponent },
   setup() {
-    const state = reactive({
-      isPlaying: false,
-      msg: 'Welcome to this game. Pick the tile that has a different color',
-      success: true
-    })
+    const { isPlaying, msg, success } = useInitialisationGame('Welcome to this game. Pick the tile that has a different color')
 
-    const classCard = function () {
+    const getClassCard = function () {
        const classes = 'b-grey-large b-rad-2 card m-auto'
-         if (state.success) return classes.concat(' green')
-         else return classes.concat(' red')
+         if (success.value) return classes.concat(' green')
+         else if (success.value === false) return classes.concat(' red')
+         else return classes
      }
-
-     const displayResult = function (res) {
+     
+     const getResult = function (res) {
       if (res) {
-          state.msg = "You won!"
-          state.success = true
+          msg.value = "You won!"
+          success.value = true
       } else {
-          state.msg = "You lost, try again"
-          state.success = false
+          msg.value = "You lost, try again"
+          success.value = false
       }
-      state.isPlaying = false
+      isPlaying.value = false
     }
 
     return {
-      state,
-      displayResult,
-      classCard
+      isPlaying,
+      msg,
+      success,
+      getResult,
+      getClassCard
     }
   }
 })

@@ -1,4 +1,14 @@
-# color-g
+# Game Of Colors
+
+# Quickly install it
+
+git clone https://github.com/RueRivoli/GameOfColors.git
+
+cd GameOfColors
+
+npm install
+
+npm run serve
 
 ## Project setup
 ```
