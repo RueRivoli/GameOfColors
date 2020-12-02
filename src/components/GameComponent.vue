@@ -1,14 +1,11 @@
 <template>
   <el-container>
     <el-header>
-      <span v-if="!state.win">
-          <el-progress :percentage="state.score" style="width:200px;display: inline-block;"></el-progress>
-      </span>
-      
-      <!-- <el-button v-else @click="newGame()" round>Play again</el-button> -->
+        <span v-if="!state.win">
+            <el-progress :percentage="state.score" style="width:200px;display: inline-block;"></el-progress>
+        </span>
       </el-header>
-      
-      <div v-if="!state.win" style="margin: auto;border: 5px solid #dbdcde;border-radius:2px;" >
+      <div class="m-auto b-grey b-grey-large b-rad-2" v-if="!state.win">
         <div v-for="id_row in state.row" :key="id_row">
           <el-row :key="id_row">
               <el-col
@@ -30,9 +27,6 @@ import { colors } from './../colors/colors'
 
 export default defineComponent({
   name: 'GameComponent',
-  props: {
-    msg: String
-  },
   setup(props, {emit}) {
     const state = reactive({
       step: 1,
@@ -42,15 +36,8 @@ export default defineComponent({
       win: false,
       score: 0
     })
-    // const newGame = function () {
-    //   console
-    //   state.step = 1,
-    //   state.idToFind = Math.floor(Math.random() * state.sq + 1)
-    //   state.win = false,
-    //   state.score = 0
-    // }
     const classOf = function (id) {
-      let classes = ['pointer','border-grey']
+      let classes = ['pointer','b-grey-thin']
       if (id === state.idToFind) classes.push(colors[state.step - 1].exception)
       else classes.push(colors[state.step - 1].usual)
       classes.push('size_' + state.step)

@@ -87,7 +87,11 @@
 .lightnavy{
     background-color: #0055ff
 }
- 
+
+.red{
+    background-color: red !important
+}
+
 /* Sizes */
   
 .size_1{
@@ -160,6 +164,15 @@
 
 /* Borders */
 
-.border-grey{
+.b-grey-thin{
     border: 1px solid #dbdcde;
+}
+.b-grey-large{
+    border: 5px solid #dbdcde;
+}
+
+/* Border-radius */
+
+.b-rad-2{
+  border-radius:2px;
 }
