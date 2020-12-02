@@ -13,6 +13,5 @@ export const colors = [
     { usual: 'purple',  exception: 'lightpurple'},
     { usual: 'pink',  exception: 'lightpink'},
     { usual: 'turquoise',  exception: 'lightturquoise'},
-    { usual: 'grey',  exception: 'lightgrey'},
     { usual: 'navy',  exception: 'lightnavy'}
 ]

@@ -1,11 +1,10 @@
 <template>
   <el-container>
-    <el-header>
-      <span>Welcome to this game. Pick the tile that has a different color</span>
+    <el-header v-if="!state.isPlaying">
+      <span>{{state.msg}}</span>
     </el-header>
-     <div :class="{'green': success, 'red': !success, 'm-auto': true}"  v-if="!state.isPlaying" style="border: 5px solid #dbdcde;border-radius:2px;background-color:#dbdcde;width:70vh;height:70vh;line-height:70vh;" >
-            {{state.msg}}
-            <el-button v-if="!state.isPlaying" @click="state.isPlaying = true" round>Play again</el-button>
+     <div v-bind:class="classCard()"  v-if="!state.isPlaying">
+        <el-button @click="state.isPlaying = true" round>Play again</el-button>
      </div>
      <game-component v-else @game-finished="displayResult"/>
 </el-container>
@@ -21,9 +20,15 @@ export default defineComponent({
   setup() {
     const state = reactive({
       isPlaying: false,
-      msg: 'Click to start',
+      msg: 'Welcome to this game. Pick the tile that has a different color',
       success: true
     })
+
+    const classCard = function () {
+       const classes = 'b-grey-large b-rad-2 card m-auto'
+         if (state.success) return classes.concat(' green')
+         else return classes.concat(' red')
+     }
 
      const displayResult = function (res) {
       if (res) {
@@ -38,7 +43,8 @@ export default defineComponent({
 
     return {
       state,
-      displayResult
+      displayResult,
+      classCard
     }
   }
 })
@@ -46,4 +52,12 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
+.card{
+  background-color:#dbdcde;
+  width:70vh;
+  height:70vh;
+  line-height:70vh;
+}
+
 </style>
